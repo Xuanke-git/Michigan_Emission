@@ -17,11 +17,11 @@ st.title("🗺️ Michigan County Emissions Analysis")
 # Load data
 @st.cache_data
 def load_data():
-    SHAPEFILE_PATH = fr"{script_dir}\County_Boundaries_-_Extended\County_Boundaries_-_Extended.shp"
+    SHAPEFILE_PATH = fr"County_Boundaries_-_Extended\County_Boundaries_-_Extended.shp"
     # print(SHAPEFILE_PATH)
     # exit()
-    EMISSIONS_CSV_PATH = fr"{script_dir}\aggregated_results.csv"
-    EMISSIONS_DIFF_PATH = fr"{script_dir}\aggregated_results_difference.csv"
+    EMISSIONS_CSV_PATH = fr"aggregated_results.csv"
+    EMISSIONS_DIFF_PATH = fr"aggregated_results_difference.csv"
     
     gdf = gpd.read_file(SHAPEFILE_PATH)
     df_baseline = pd.read_csv(EMISSIONS_CSV_PATH)
