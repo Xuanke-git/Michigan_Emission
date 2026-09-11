@@ -18,6 +18,8 @@ st.title("🗺️ Michigan County Emissions Analysis")
 @st.cache_data
 def load_data():
     SHAPEFILE_PATH = fr"{script_dir}\County_Boundaries_-_Extended\County_Boundaries_-_Extended.shp"
+    print(SHAPEFILE_PATH)
+    exit()
     EMISSIONS_CSV_PATH = fr"{script_dir}\aggregated_results.csv"
     EMISSIONS_DIFF_PATH = fr"{script_dir}\aggregated_results_difference.csv"
     
