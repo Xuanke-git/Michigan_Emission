@@ -3,9 +3,12 @@ import pandas as pd
 import geopandas as gpd
 import matplotlib.pyplot as plt
 import numpy as np
+from pathlib import Path
 from matplotlib.ticker import FuncFormatter
 import warnings
 warnings.filterwarnings('ignore')
+
+script_dir = Path(__file__).parent
 
 # Page configuration
 st.set_page_config(page_title="County Emissions Visualization", layout="wide")
@@ -14,9 +17,9 @@ st.title("🗺️ Michigan County Emissions Analysis")
 # Load data
 @st.cache_data
 def load_data():
-    SHAPEFILE_PATH = r"..\County_Boundaries_-_Extended\County_Boundaries_-_Extended.shp"
-    EMISSIONS_CSV_PATH = r"aggregated_results.csv"
-    EMISSIONS_DIFF_PATH = r"aggregated_results_difference.csv"
+    SHAPEFILE_PATH = script_dir + "County_Boundaries_-_Extended\County_Boundaries_-_Extended.shp"
+    EMISSIONS_CSV_PATH = script_dir + "aggregated_results.csv"
+    EMISSIONS_DIFF_PATH = script_dir + "aggregated_results_difference.csv"
     
     gdf = gpd.read_file(SHAPEFILE_PATH)
     df_baseline = pd.read_csv(EMISSIONS_CSV_PATH)
